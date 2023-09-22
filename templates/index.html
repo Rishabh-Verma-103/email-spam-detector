@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My First WebAPP</title>
+        <link rel="stylesheet "href="{{url_for('static',filename='css/main.css')}}">
+    </head>
+    <body>
+        <h1>Email Spam Classifier</h1>
+        <form method="post" action="/predict">
+            <textarea name = "email-content" rows="25" cols="95" placeholder="Enter your Email" 
+            autocomlete='off'>{{ email_text }}</textarea>
+            <div>
+                <button type="submit">Check Spam</button>
+                <a href="/">Reset></a>
+            </div>
+        </form>
+        <div>
+            {% if predictions == 1 %}
+            <h2 style="color: red">Spam</h2>
+            {% else %}
+            <h2 style="color: green">Not Spam</h2>
+            {% endif %}
+        </div>
+    </body>
+</html>
